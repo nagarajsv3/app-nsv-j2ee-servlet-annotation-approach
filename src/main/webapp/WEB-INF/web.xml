@@ -3,6 +3,11 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+    <context-param>
+        <param-name>email</param-name>
+        <param-value>magic@gmail.com</param-value>
+    </context-param>
     
     <servlet>
         <servlet-name>helloServlet</servlet-name>
@@ -19,6 +24,11 @@
         <!--Instantiate after receiving the first request-->
         <servlet-name>goodbyeservlet</servlet-name>
         <servlet-class>com.nsv.jsmbaba.servlets.GoodByeServlet</servlet-class>
+        <!--servlet config param-->
+        <init-param>
+            <param-name>specificemail</param-name>
+            <param-value>specificemailvalue</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>goodbyeservlet</servlet-name>
@@ -43,5 +53,14 @@
     <servlet-mapping>
         <servlet-name>registrationServlet</servlet-name>
         <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>searchServlet</servlet-name>
+        <servlet-class>com.nsv.jsmbaba.servlets.SearchServlet</servlet-class>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>searchServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
     </servlet-mapping>
 </web-app>
