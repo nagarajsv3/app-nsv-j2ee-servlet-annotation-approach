@@ -26,8 +26,9 @@ public class RegistrationServlet extends HttpServlet {
         HttpSession session = req.getSession(false);//gets the existing servlet
         if(session != null){
             isUserLoggedn = true;
+            String username = (String) session.getAttribute("uname");
+            System.out.println("RegistrationServlet-username="+username);
         }
-
 
         if(isUserLoggedn){
             System.out.println("RegistrationServlet-doPost()-BEGIN");

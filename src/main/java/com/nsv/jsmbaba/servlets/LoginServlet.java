@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 
         if(password.equals("baba")){
             //Session Management Using Cookie
-            Cookie cookie = new Cookie("uname","username");
+            Cookie cookie = new Cookie("uname",req.getParameter("userName"));
             resp.addCookie(cookie);
 
             //Session Management Using HttpSession
