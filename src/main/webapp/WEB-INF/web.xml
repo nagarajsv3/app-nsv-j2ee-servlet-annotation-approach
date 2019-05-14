@@ -4,6 +4,7 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <!--context-param applies to all the servlets-->
     <context-param>
         <param-name>email</param-name>
         <param-value>magic@gmail.com</param-value>
@@ -25,6 +26,7 @@
         <servlet-name>goodbyeservlet</servlet-name>
         <servlet-class>com.nsv.jsmbaba.servlets.GoodByeServlet</servlet-class>
         <!--servlet config param-->
+        <!--init-param applies to particular servet-->
         <init-param>
             <param-name>specificemail</param-name>
             <param-value>specificemailvalue</param-value>
@@ -54,6 +56,16 @@
         <servlet-name>registrationServlet</servlet-name>
         <url-pattern>/registration</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>com.nsv.jsmbaba.servlets.LogoutServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>searchServlet</servlet-name>
         <servlet-class>com.nsv.jsmbaba.servlets.SearchServlet</servlet-class>
@@ -63,4 +75,9 @@
         <servlet-name>searchServlet</servlet-name>
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
+
+    <!--If there is no user activity, timeout HttpSession-->
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
 </web-app>

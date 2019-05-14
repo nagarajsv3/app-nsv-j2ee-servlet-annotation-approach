@@ -15,8 +15,16 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CustomerService service = new CustomerService();
-        String city= req.getParameter("city");
-        List<Customer> customers = service.searchCustomers(city);
+        String city= req.getParameter("cityorstate");
+        String action = req.getParameter("action");
+        List<Customer> customers=null;
+        if(action.equals("SearchByCity")){
+            customers = service.searchCustomersByCity(city);
+        }else{
+            customers = service.searchCustomersByState(city);
+        }
+
+
 
         StringBuffer buffer = new StringBuffer();
         buffer.append("<table border=1>");

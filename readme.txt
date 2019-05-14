@@ -53,3 +53,6 @@ public class GoodByeServlet extends HttpServlet{
         PrintWriter writer = resp.getWriter();
         writer.println("GoodBye EasyPay App. servletContextInitParam="+servletContextInitParam+"\n"+"specificemail="+specificemail);
     }
+
+
+8. Session Management Using HttpSession

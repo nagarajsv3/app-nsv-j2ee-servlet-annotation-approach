@@ -38,9 +38,9 @@ public class CustomerDao {
         return updatedRows;
     }
 
-    public List<Customer> searchCustomers(String city) {
+    public List<Customer> searchCustomersByCity(String city) {
         List<Customer> customers = new ArrayList<>();
-        System.out.println("CustomerDao:searchCustomers=" + city);
+        System.out.println("CustomerDao:searchCustomersByCity=" + city);
         Connection connection = JdbcUtility.getMeADatabaseConnection();
         String sql = "select * from customer where city = ?";
         try {
@@ -66,6 +66,36 @@ public class CustomerDao {
         }
 
 
+        return customers;
+
+    }
+
+    public List<Customer> searchCustomersByState(String state) {
+        List<Customer> customers = new ArrayList<>();
+        System.out.println("CustomerDao:searchCustomersByState=" + state);
+        Connection connection = JdbcUtility.getMeADatabaseConnection();
+        String sql = "select * from customer where state = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, state);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Customer customer = new Customer();
+                customer.setCustomerId(resultSet.getInt("customerId"));
+                customer.setName(resultSet.getString("name"));
+                customer.setStreet(resultSet.getString("street"));
+                customer.setCity(resultSet.getString("city"));
+                customer.setState(resultSet.getString("state"));
+                customer.setCountry(resultSet.getString("country"));
+                customer.setZipCode(resultSet.getString("zipcode"));
+                customers.add(customer);
+            }
+            preparedStatement.close();
+            resultSet.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return customers;
 
     }

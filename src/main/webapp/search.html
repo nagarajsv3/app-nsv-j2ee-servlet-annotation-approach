@@ -5,15 +5,16 @@
     <title>EasyPay-Search</title>
 </head>
 <body>
-<h2>Customer Search By City</h2>
+<h2>Customer Search By City/State</h2>
 <form method="post" action="/search">
     <table>
         <tr>
-            <td>Enter the city to search for</td>
-            <td><input type="text" name="city"></td>
+            <td>Enter the city/state to search for</td>
+            <td><input type="text" name="cityorstate"></td>
         </tr>
     </table>
-    <input type="submit" value="Search">
+    <input type="submit" value="SearchByCity" name="action">
+    <input type="submit" value="SearchByState" name="action">
 </form>
 
 </body>

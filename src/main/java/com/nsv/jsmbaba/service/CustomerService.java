@@ -13,10 +13,17 @@ public class CustomerService {
         return customerDao.createCustomer(customer);
     }
 
-    public List<Customer> searchCustomers(String city) {
+    public List<Customer> searchCustomersByCity(String city) {
         List<Customer> customers = new ArrayList<>();
         CustomerDao customerDao = new CustomerDao();
-        customers = customerDao.searchCustomers(city);
+        customers = customerDao.searchCustomersByCity(city);
+        return customers;
+    }
+
+    public List<Customer> searchCustomersByState(String state) {
+        List<Customer> customers = new ArrayList<>();
+        CustomerDao customerDao = new CustomerDao();
+        customers = customerDao.searchCustomersByState(state);
         return customers;
     }
 }
