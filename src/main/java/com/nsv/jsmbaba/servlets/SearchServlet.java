@@ -11,13 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-@WebServlet(name="searchServlet",
-            urlPatterns = {"/search"},
-            initParams = {
-                            @WebInitParam(name="test", value = "testvalue"),
-                            @WebInitParam(name="prop2", value = "prop2value")
-                        }
-            )
+
 public class SearchServlet extends HttpServlet {
 
     @Override

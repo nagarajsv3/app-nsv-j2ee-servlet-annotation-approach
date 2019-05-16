@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-@WebServlet(name="loginServlet",urlPatterns = {"/login"})
+
 public class LoginServlet extends HttpServlet {
 
     @Override

@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-@WebServlet(name="registrationServlet", urlPatterns = {"/registration"})
+
 public class RegistrationServlet extends HttpServlet {
 
     @Override

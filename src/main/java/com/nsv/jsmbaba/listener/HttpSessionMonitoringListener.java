@@ -3,7 +3,6 @@ package com.nsv.jsmbaba.listener;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
-@WebListener
 public class HttpSessionMonitoringListener implements HttpSessionListener {
     public int activeSessionCount;
     @Override
