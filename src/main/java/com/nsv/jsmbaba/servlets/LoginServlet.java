@@ -12,7 +12,7 @@ public class LoginServlet extends HttpServlet {
 
         String userName = req.getParameter("userName");
         String password = req.getParameter("password");
-        System.out.println("userName="+userName+";password="+password);
+        System.out.println("LoginServlet-userName="+userName+";password="+password);
 
         resp.setContentType("text/html");
         PrintWriter writer = resp.getWriter();
@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
             resp.addCookie(cookie);
 
             //Session Management Using HttpSession
-            HttpSession session = req.getSession(); //Generates a new Session
+            HttpSession session = req.getSession(); //Get a new Session
             session.setAttribute("uname",userName);
 
             writer.println("login successful. Welcome to customer registration page.");

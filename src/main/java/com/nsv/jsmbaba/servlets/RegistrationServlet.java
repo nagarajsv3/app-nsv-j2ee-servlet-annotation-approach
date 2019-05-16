@@ -12,8 +12,10 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("RegistrationServlet-POST-BEGIN");
         boolean isUserLoggedn = false;
 
+/*
         //Session Management Using Cookie
         Cookie[] cookies = req.getCookies();
         for (Cookie cookie:cookies) {
@@ -21,10 +23,12 @@ public class RegistrationServlet extends HttpServlet {
                 isUserLoggedn = true;
             }
         }
+*/
 
         //Session Management Using Cookie
         HttpSession session = req.getSession(false);//gets the existing servlet
         if(session != null){
+            System.out.println("RegistrationServlet-setting isUserLogged="+true);
             isUserLoggedn = true;
             String username = (String) session.getAttribute("uname");
             System.out.println("RegistrationServlet-username="+username);
@@ -48,6 +52,7 @@ public class RegistrationServlet extends HttpServlet {
                 writer.println("Customer is not created");
             }
         }else{
+            System.out.println("RegistrationServlet-User is not logged in. Redirecting it to Login.html");
             req.getRequestDispatcher("/login.html").forward(req,resp);
         }
     }

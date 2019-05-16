@@ -11,12 +11,12 @@ public class LogoutServlet extends HttpServlet {
         //Invalidate the session
         HttpSession session = req.getSession(false);
         if(session != null){
-            System.out.println("Invalidating the session");
+            System.out.println("LogoutServlet-Invalidating the session");
             session.invalidate();
-            System.out.println("Forwarding it to login");
+            System.out.println("LogoutServlet-Forwarding it to login");
             req.getRequestDispatcher("/login.html").forward(req,resp);
         }else{
-            System.out.println("Forwarding it to registration");
+            System.out.println("LogoutServlet-Forwarding it to registration");
             req.getRequestDispatcher("/registration.html").forward(req,resp);
         }
 
