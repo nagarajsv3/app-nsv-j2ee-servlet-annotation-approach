@@ -1,8 +1,9 @@
 package com.nsv.jsmbaba.filters;
 
 import javax.servlet.*;
-
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
+@WebFilter(filterName = "loggingfilter", urlPatterns = "/*")
 public class RequestAuditFilter implements Filter{
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
