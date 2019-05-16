@@ -4,10 +4,11 @@ import com.nsv.jsmbaba.domain.Customer;
 import com.nsv.jsmbaba.service.CustomerService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
-
+@WebServlet(name="registrationServlet", urlPatterns = {"/registration"})
 public class RegistrationServlet extends HttpServlet {
 
     @Override
